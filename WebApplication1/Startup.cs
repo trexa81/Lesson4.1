@@ -25,6 +25,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddSingleton<ValuesHolder>();
         }
 
         // Этот метод вызывается средой выполнения. Используйте этот метод для настройки конвейера HTTP-запросов.
@@ -34,6 +35,8 @@ namespace WebApplication1
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection(); //из методички
 
             app.UseRouting();
 

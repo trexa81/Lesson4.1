@@ -1,19 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Controllers
+namespace WebApplication1.Controllers  //класс контроллера
 {
-    [ApiController]
-    [Route("[controller]")]
+    [ApiController]  //атрибут пометки для слоя
+    [Route("[controller]")]  //атрибут пути: http://localhost:5000/weatherforecast
     public class WeatherForecastController : ControllerBase
     {
+
         private static readonly string[] Summaries = new[]
         {
-             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
@@ -31,7 +33,7 @@ namespace WebApplication1.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 Temperature_C = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
             })
             .ToArray();
         }
